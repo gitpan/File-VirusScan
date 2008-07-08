@@ -27,4 +27,5 @@ requires:
   IO::Socket::INET: 0
   IO::Socket::UNIX: 0
   Scalar::Util: 0
-version: 0.100_01
+tests: 't/*.t xt/*.t'
+version: 0.100_02
