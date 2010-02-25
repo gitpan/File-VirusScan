@@ -96,8 +96,8 @@ File::VirusScan::Engine::Daemon::Sophos::Sophie - File::VirusScan backend for sc
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Daemon::Sophos::Sophie' => {
 			socket_name => '/path/to/sophie.ctl',
@@ -162,4 +162,4 @@ Jason Englander
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GPL, version 2 or later.

@@ -2,11 +2,12 @@ package File::VirusScan;
 use strict;
 use warnings;
 use Carp;
+use 5.008;
 
 use File::VirusScan::Result;
 use File::VirusScan::ResultSet;
 
-our $VERSION = '0.100_02';
+our $VERSION = '0.101';
 
 # We don't use Module::Pluggable.  Most users of this module will have
 # one or two virus scanners, with the other half-dozen or so plugins
@@ -111,7 +112,7 @@ File::VirusScan - Unified interface for virus scanning of files/directories
 
     my $result = $scanner->scan( "/tmp/uploaded-files" );
 
-    if( $result->is_clean ) {
+    if( $result->all_clean ) {
 	return 'Happiness and puppies!';
     } else {
 	return 'Oh noes!  You've got ' . join(',' @{ $result->virus_names } );

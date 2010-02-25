@@ -11,20 +11,9 @@ use Cwd 'abs_path';
 
 use File::VirusScan::Result;
 
-sub new
+sub default_arguments
 {
-	my ($class, $conf) = @_;
-
-	if(!$conf->{command}) {
-		croak "Must supply a 'command' config value for $class";
-	}
-
-	my $self = {
-		command => $conf->{command},
-		args    => [ '--stdout', '--no-summary', '--infected' ],
-	};
-
-	return bless $self, $class;
+	return [qw(--stdout --no-summary --infected)];
 }
 
 sub scan
@@ -69,8 +58,8 @@ File::VirusScan::Engine::Command::ClamAV::Clamscan - File::VirusScan backend for
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Command::ClamAV::Clamscan' => {
 			command => '/path/to/clamscan',
@@ -127,4 +116,4 @@ Dave O'Neill (dmo@roaringpenguin.com)
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GPL, version 2 or later.

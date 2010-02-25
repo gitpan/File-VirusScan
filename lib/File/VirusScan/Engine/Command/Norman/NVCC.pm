@@ -11,20 +11,9 @@ use Cwd 'abs_path';
 
 use File::VirusScan::Result;
 
-sub new
+sub default_arguments
 {
-	my ($class, $conf) = @_;
-
-	if(!$conf->{command}) {
-		croak "Must supply a 'command' config value for $class";
-	}
-
-	my $self = {
-		command => $conf->{command},
-		args    => [ '-u', '-c', '-s' ],
-	};
-
-	return bless $self, $class;
+	return [qw( -u -c -s)];
 }
 
 sub scan
@@ -70,8 +59,8 @@ File::VirusScan::Engine::Command::Norman::NVCC - File::VirusScan backend for sca
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Command::Norman::NVCC' => {
 			command => '/path/to/nvcc',
@@ -129,4 +118,4 @@ Dave O'Neill (dmo@roaringpenguin.com)
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GPL, version 2 or later.

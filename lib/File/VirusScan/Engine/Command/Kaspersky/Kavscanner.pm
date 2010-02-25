@@ -11,20 +11,9 @@ use Cwd 'abs_path';
 
 use File::VirusScan::Result;
 
-sub new
+sub default_arguments
 {
-	my ($class, $conf) = @_;
-
-	if(!$conf->{command}) {
-		croak "Must supply a 'command' config value for $class";
-	}
-
-	my $self = {
-		command => $conf->{command},
-		args    => [ '-e', 'PASBME', '-o', 'syslog', '-i0' ],
-	};
-
-	return bless $self, $class;
+	return [ qw( -e PASBME -o syslog -i0 ) ];
 }
 
 sub scan
@@ -78,8 +67,8 @@ File::VirusScan::Engine::Command::Kaspersky::Kavscanner - File::VirusScan backen
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Command::Kaspersky::Kavscanner' => {
 			command => '/path/to/aveclient',
@@ -136,5 +125,5 @@ Dave O'Neill (dmo@roaringpenguin.com)
 
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+this program is free software; you can redistribute it and/or modify it
+under the terms of the gpl, version 2 or later.

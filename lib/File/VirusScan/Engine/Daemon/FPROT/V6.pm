@@ -195,8 +195,8 @@ File::VirusScan::Engine::Daemon::FPROT::V6 - File::VirusScan backend for scannin
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Daemon::FPROT::V6' => {
 			host      => '127.0.0.1',
@@ -291,4 +291,4 @@ Steffen Kaiser
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GPL, version 2 or later.

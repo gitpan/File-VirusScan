@@ -11,20 +11,9 @@ use Cwd 'abs_path';
 
 use File::VirusScan::Result;
 
-sub new
+sub default_arguments
 {
-	my ($class, $conf) = @_;
-
-	if(!$conf->{command}) {
-		croak "Must supply a 'command' config value for $class";
-	}
-
-	my $self = {
-		command => $conf->{command},
-		args    => [ '-DUMB', '-ARCHIVE', '-PACKED' ],
-	};
-
-	return bless $self, $class;
+	return [ qw( -DUMB -ARCHIVE -PACKED ) ];
 }
 
 sub scan
@@ -83,8 +72,8 @@ File::VirusScan::Engine::Command::FPROT::FPROT - File::VirusScan backend for sca
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Command::FPROT::FPROT' => {
 			command => '/path/to/fprot',

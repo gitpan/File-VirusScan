@@ -11,20 +11,9 @@ use Cwd 'abs_path';
 
 use File::VirusScan::Result;
 
-sub new
+sub default_arguments
 {
-	my ($class, $conf) = @_;
-
-	if(!$conf->{command}) {
-		croak "Must supply a 'command' config value for $class";
-	}
-
-	my $self = {
-		command => $conf->{command},
-		args    => [ '--dumb', '--mime' ],
-	};
-
-	return bless $self, $class;
+	return [ qw( --dumb --mime ) ];
 }
 
 sub scan
@@ -89,8 +78,8 @@ File::VirusScan::Engine::Command::FSecure::FSAV - File::VirusScan backend for sc
 
 =head1 SYNOPSIS
 
-    use File::VirusScanner;
-    my $s = File::VirusScanner->new({
+    use File::VirusScan;
+    my $s = File::VirusScan->new({
 	engines => {
 		'-Command::FSecure::FSAV' => {
 			command => '/path/to/fsav',
@@ -150,4 +139,4 @@ fsav exit code information provided by David Green
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GPL, version 2 or later.
