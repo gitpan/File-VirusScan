@@ -7,7 +7,7 @@ use 5.008;
 use File::VirusScan::Result;
 use File::VirusScan::ResultSet;
 
-our $VERSION = '0.101';
+our $VERSION = '0.102';
 
 # We don't use Module::Pluggable.  Most users of this module will have
 # one or two virus scanners, with the other half-dozen or so plugins
@@ -172,7 +172,7 @@ Scanning via Carrier Scan server with L<File::VirusScan::Engine::Daemon::Symante
 
 Scanning daemon via L<File::VirusScan::Engine::Daemon::FPROT::V4> and
 L<File::VirusScan::Engine::Daemon::FPROT::V6>, as well as the
-commandline scanner via L<File::VirusScan::Engine::Command::FPROT::FPROT>
+commandline scanners via L<File::VirusScan::Engine::Command::FPROT::FPROT> and L<File::VirusScan::Engine::Command::FPROT::Fpscan>
 
 =item Central Command Vexira
 
@@ -276,4 +276,5 @@ David Skoll  (dfs@roaringpenguin.com>
 Copyright (c) 2007 Roaring Penguin Software, Inc.
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+under the terms of the GNU General Public License, version 2, or
+(at your option) any later version.
